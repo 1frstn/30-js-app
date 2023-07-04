@@ -69,18 +69,66 @@
       }
       console.log(totalYears);
 
-      const livingLenght = inventors.reduce
+      const totalYearsRdc = inventors.reduce((total , inventor) => {
+        return total + (inventor.passed - inventor.year) 
+      })
+
+      console.log(totalYears);
+
 
       // 5. Sort the inventors by years lived
+
+      const yearsLvd = inventors.sort((a,b) => {
+        if((a.passed-a.year) > (b.passed - b.year) ){
+          return 1
+        } else{
+          return -1
+        }
+      })
+
+      const yearLvdTrnry = inventors.sort((a,b) => (a.passed - a.year)>(b.passed -b.year) ? 1 : -1)
+      console.log(">>>SORT",yearsLvd);
+      console.log(">>>TERNERERY",yearLvdTrnry);
+
+      let age = 0;
+      const ageEch = inventors.map((i)=> `"${i.first} ${i.last}" lived:${i.passed-i.year}`)
+      console.log(ageEch); 
   
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-  
-  
+       
+
+       /* const category = document.querySelector(".mw-category");
+       const links = [...category.querySelectorAll('a')]; 
+       const de = links
+                     .map(link => link.textContent)
+                     .filter(streetName => streetName.includes('de')); */
+
+
+
       // 7. sort Exercise
       // Sort the people alphabetically by last name
-  
+
+      const alpha = people.sort((a,b)=>{
+        const [ac,ad] = a.split(', ')
+        const [bc,bd] = b.split(', ')
+        return ac > bc ? -1 : 1;
+      } )
+      console.log(alpha);
+
       // 8. Reduce Exercise
       // Sum up the instances of each of these
       const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-  
+      const sum = data.reduce((obj,item) => {
+        obj[item] = (obj[item] || 0) +1;
+        return obj;
+      },{})
+
+      const altr = data.reduce((obj,item) => {
+        if(!obj[item]){
+          obj[item] = 0;
+        }
+        obj[item]++;
+        return obj;
+      })
+      console.log(sum);
