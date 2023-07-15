@@ -27,6 +27,16 @@ font-size: 0;
 overflow: hidden;
 }
 
+.fullSc{
+height: 90vh;
+width: 90%;
+border: 5px solid rgba(0,0,0,0.2);
+box-shadow: 0 0 20px rgba(0,0,0,0.2);
+position: relative;
+font-size: 0;
+overflow: hidden;
+}
+
 /* This css is only applied when fullscreen is active. */
 .player:fullscreen {
 max-width: none;
@@ -39,7 +49,8 @@ width: 100%;
 }
 
 .player__video {
-width: 100%;
+    width: 100%;
+
 }
 
 .player__button {
