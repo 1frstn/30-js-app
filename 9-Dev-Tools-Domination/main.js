@@ -1,4 +1,4 @@
-const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+/* const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
 
 function makeGreen() {
   const p = document.querySelector('p');
@@ -72,3 +72,20 @@ fetch('https://api.github.com/users/wesbos')
   });
 
 console.table(dogs);
+ */
+
+function fizzBuzz(n) {
+  // Write your code here
+  if(n%(5*3) === 0){
+      return "FizzBuzz";
+  }else if(n%3===0){
+      return "Fizz"
+  }else if(n%5===0){
+      return "Buzz"
+  }else{
+      return n
+  }
+
+}
+
+console.log(fizzBuzz(5));
