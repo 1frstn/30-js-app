@@ -217,3 +217,74 @@ function modeFinder(array){
     
 }
 modeFinder([500, 400, 400, 375, 300, 350, 325, 300])
+
+
+/* ssasa */
+function statsFinder(array) {
+    let length = array.length;
+      let sum = array.reduce((acc, curr) => acc + curr, 0); // Initialize accumulator value to 0
+    
+      let mean = sum / length;
+    
+      let obj = array.reduce((acc, curr) => {
+        acc[curr] = acc[curr] ? acc[curr] + 1 : 1;
+        if (acc[curr] > acc.max) {
+          acc.max = acc[curr];
+          acc.mode = curr; // Store the mode directly in the accumulator
+        }
+        return acc;
+      }, { max: 1 });
+    
+      let mode = obj.mode;
+    
+    return [mean,mode]
+}
+
+/* 
+
+function statsFinder(array) {
+let sum = array.reduce((acc,val) => acc+val,0)
+let mean = sum/array.length
+
+let frequencyMap = {}
+let maxFrequency = 0 
+let mode = null
+for(let num of array){
+  frequencyMap[num] = (frequencyMap[num] | 0) + 1
+  if(frequencyMap[num]>maxFrequency){
+    maxFrequency = frequencyMap[num]
+    
+    mode = num
+  }
+}
+
+return [mean,mode]
+}
+
+
+*/
+
+
+
+function primeFinder(n) {
+    const isPrime = new Array(n + 1).fill(true);
+    isPrime[0] = false;
+    isPrime[1] = false;
+  
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (isPrime[i]) {
+        for (let j = i * i; j <= n; j += i) {
+          isPrime[j] = false;
+        }
+      }
+    }
+  
+    const primes = [];
+    for (let i = 2; i <= n; i++) {
+      if (isPrime[i]) {
+        primes.push(i);
+      }
+    }
+  
+    return primes;
+  }
